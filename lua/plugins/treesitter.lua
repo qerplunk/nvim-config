@@ -1,7 +1,7 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     config = function()
-        require("nvim-treesitter.configs").setup {
+        require("nvim-treesitter.configs").setup({
             ensure_installed = {
                 "bash",
                 "c",
@@ -11,6 +11,7 @@ return {
                 "python",
                 "javascript",
                 "typescript",
+                "tsx",
                 "markdown",
             },
             sync_install = false,
@@ -29,6 +30,6 @@ return {
                 enable = true,
                 disable = { "python", "css" },
             },
-        }
-    end
+        })
+    end,
 }

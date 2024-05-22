@@ -13,9 +13,9 @@ return {
         local opts = { noremap = true, silent = true }
 
         local on_attach = function(client, bufnr)
-            if client.name == "tsserver" then
-                client.server_capabilities.documentFormattingProvider = false
-            end
+            --if client.name == "tsserver" then
+            --client.server_capabilities.documentFormattingProvider = false
+            --end
 
             opts.buffer = bufnr
 
@@ -97,21 +97,16 @@ return {
             },
         })
 
-        --lspconfig["lua_ls"].setup({
-        --capabilities = capabilities,
-        --on_attach = on_attach,
-        --})
+        lspconfig["tailwindcss"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
 
         lspconfig["tsserver"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
             cmd = { "typescript-language-server", "--stdio" },
             single_file_support = true,
-        })
-
-        lspconfig["tailwindcss"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
         })
 
         lspconfig["lua_ls"].setup({
