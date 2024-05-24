@@ -10,11 +10,11 @@ vim.opt.cmdheight = 0
 local space = " "
 vim.opt.list = true
 vim.opt.listchars:append({
-	tab = "│ ",
-	multispace = space,
-	lead = space,
-	trail = space,
-	nbsp = space,
+    tab = "│ ",
+    multispace = space,
+    lead = space,
+    trail = space,
+    nbsp = space,
 })
 
 vim.opt.tabstop = 4
@@ -51,20 +51,19 @@ vim.opt.writebackup = false
 vim.opt.updatetime = 300
 vim.opt.signcolumn = "yes"
 
-vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Highlight current line only on current bufffer
 vim.opt.cursorline = true -- Highlight the current line
 local group = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
 local set_cursorline = function(event, value, pattern)
-	vim.api.nvim_create_autocmd(event, {
-		group = group,
-		pattern = pattern,
-		callback = function()
-			vim.opt_local.cursorline = value
-		end,
-	})
+    vim.api.nvim_create_autocmd(event, {
+        group = group,
+        pattern = pattern,
+        callback = function()
+            vim.opt_local.cursorline = value
+        end,
+    })
 end
 
 set_cursorline("WinLeave", false)
