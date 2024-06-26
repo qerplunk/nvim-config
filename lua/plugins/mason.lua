@@ -1,43 +1,43 @@
 return {
-    {
-        "williamboman/mason.nvim",
-        dependencies = {
-            "williamboman/mason-lspconfig.nvim",
-        },
+	{
+		"williamboman/mason.nvim",
+		dependencies = {
+			"williamboman/mason-lspconfig.nvim",
+		},
 
-        config = function()
-            local mason = require("mason")
-            local mason_lsp = require("mason-lspconfig")
+		config = function()
+			local mason = require("mason")
+			local mason_lsp = require("mason-lspconfig")
 
-            mason.setup()
-            mason_lsp.setup({
-                ensure_installed = {
-                    "tsserver",
-                    "clangd",
-                    "rust_analyzer",
-                    "tailwindcss",
-                    "pyright",
-                    "lua_ls",
-                },
-                automatic_installation = true,
-            })
-        end,
-    },
-    {
-        "jay-babu/mason-null-ls.nvim",
-        event = { "BufReadPre", "BufNewFile" },
-        dependencies = {
-            "williamboman/mason.nvim",
-            "nvimtools/none-ls.nvim",
-        },
-        config = function()
-            require("mason-null-ls").setup({
-                ensure_installed = {
-                    "stylua",
-                    "prettierd",
-                    "eslint_d",
-                },
-            })
-        end,
-    },
+			mason.setup()
+			mason_lsp.setup({
+				ensure_installed = {
+					"tsserver",
+					"clangd",
+					"rust_analyzer",
+					"tailwindcss",
+					"pyright",
+					"lua_ls",
+				},
+				automatic_installation = true,
+			})
+		end,
+	},
+	{
+		"jay-babu/mason-null-ls.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"williamboman/mason.nvim",
+			"nvimtools/none-ls.nvim",
+		},
+		config = function()
+			require("mason-null-ls").setup({
+				ensure_installed = {
+					"stylua",
+					"prettierd",
+					"eslint_d",
+				},
+			})
+		end,
+	},
 }

@@ -6,7 +6,6 @@ return {
 	config = function()
 		local lualine = require("lualine")
 		local theme = require("lualine.themes.iceberg_dark")
-		--theme.normal.c.bg = "#112233"
 		theme.normal.c.bg = "#262626"
 
 		lualine.setup({
