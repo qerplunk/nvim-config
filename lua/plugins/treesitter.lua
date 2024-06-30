@@ -28,6 +28,13 @@ return {
 				enable = true,
 				disable = { "python", "css" },
 			},
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					node_incremental = "<M-V>",
+					node_decremental = "<M-v>",
+				},
+			},
 		})
 	end,
 }
