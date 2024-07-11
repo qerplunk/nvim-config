@@ -41,7 +41,7 @@ vim.opt.background = "dark"
 vim.opt.confirm = true
 vim.opt.timeoutlen = 300
 
-vim.opt.conceallevel = 2
+vim.opt.conceallevel = 0
 vim.opt.concealcursor = "n"
 
 vim.opt.lazyredraw = true

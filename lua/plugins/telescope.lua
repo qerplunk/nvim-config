@@ -9,6 +9,8 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
+		local actions_state = require("telescope.actions.state")
+		local actions_set = require("telescope.actions.set")
 		local fb_actions = require("telescope").extensions.file_browser.actions
 
 		telescope.setup({
@@ -29,6 +31,9 @@ return {
 					i = {
 						["<C-k>"] = actions.move_selection_previous,
 						["<C-j>"] = actions.move_selection_next,
+						["<C-h>"] = function()
+							vim.cmd("Telescope find_files hidden=true")
+						end,
 					},
 				},
 			},
@@ -41,11 +46,11 @@ return {
 							["."] = fb_actions.toggle_hidden,
 							["h"] = fb_actions.goto_parent_dir,
 							["l"] = function(prompt_buffer) -- Open file or go into directory
-								local is_dir = require("telescope.actions.state").get_selected_entry().Path:is_dir()
+								local is_dir = actions_state.get_selected_entry().Path:is_dir()
 								if is_dir then
 									fb_actions.open_dir(prompt_buffer)
 								else
-									require("telescope.actions.set").select(prompt_buffer, "default")
+									actions_set.select(prompt_buffer, "default")
 								end
 							end,
 						},

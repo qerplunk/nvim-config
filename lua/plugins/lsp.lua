@@ -3,7 +3,6 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		--{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
@@ -41,13 +40,6 @@ return {
 
 			opts.desc = "Shsw documentation under cursor"
 			map.set("n", "K", vim.lsp.buf.hover, opts)
-
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				buffer = bufnr,
-				callback = function()
-					vim.lsp.buf.format({ async = false })
-				end,
-			})
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -68,6 +60,7 @@ return {
 		lspconfig["pyright"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			single_file_support = true,
 		})
 
 		lspconfig["rust_analyzer"].setup({
@@ -89,10 +82,34 @@ return {
 			on_attach = on_attach,
 		})
 
+		lspconfig["eslint"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		--lspconfig["eslint"].setup({
+		--	capabilities = capabilities,
+		--	on_attach = on_attach,
+		--	filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+		--	settings = {
+		--		workingDirectory = {
+		--			mode = "auto",
+		--		},
+		--		format = { enable = false },
+		--		lint = { enable = true },
+		--	},
+		--})
+
 		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			cmd = { "typescript-language-server", "--stdio" },
+			single_file_support = true,
+		})
+
+		lspconfig["volar"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
 			single_file_support = true,
 		})
 

@@ -54,7 +54,7 @@ map.set(
 	"<cmd> lua require('telescope.builtin').find_files( { cwd = vim.fn.expand('%:p:h') }) <cr>",
 	opts
 ) -- telescope find file in curr file dir
-map.set("n", "<leader>ff", "<cmd> Telescope file_browser path=%:p:h <cr>", opts) -- find file using file_browser from current file dir
+map.set("n", "<leader>ff", "<cmd> Telescope file_browser hidden=true path=%:p:h <cr>", opts) -- find file using file_browser from current file dir
 map.set("n", "<leader>fg", "<cmd> Telescope live_grep <cr>", opts) -- grep string
 map.set("n", "<leader>fr", "<cmd> Telescope oldfiles <cr>", opts) -- find recent file
 
@@ -73,6 +73,7 @@ map.set("n", "<leader>bk", function()
 	end
 end, opts)
 
+map.set("n", "<leader>bc", "<cmd> NoNeckPain <cr>", opts) -- center buffer
 map.set("n", "<leader>bn", "<cmd> bnext <cr>", opts) -- next buffer
 map.set("n", "<leader>bp", "<cmd> bprevious <cr>", opts) -- previous buffer
 map.set("n", "<leader>bb", "<cmd> b# <cr>", opts) -- recently used buffer
@@ -101,17 +102,6 @@ end)
 map.set("n", "<leader>fs", "<cmd> w <cr>", opts) -- save file
 map.set("n", "<leader>qq", "<cmd> q <cr>", opts) -- quit nvim when in last buffer
 map.set("n", "<esc>", "<cmd> noh <cr>", opts) -- clears search
-
----- HARPOON
-map.set("n", "<leader>aa", "<cmd> lua require('harpoon.mark').add_file() <cr>", opts)
-map.set("n", "<leader>an", "<cmd> lua require('harpoon.ui').nav_next() <cr>", opts)
-map.set("n", "<leader>ap", "<cmd> lua require('harpoon.ui').nav_prev() <cr>", opts)
-map.set("n", "<leader>am", "<cmd> lua require('harpoon.ui').toggle_quick_menu() <cr>", opts)
-
-map.set("n", "<leader>ah", "<cmd> lua require('harpoon.ui').nav_file(1) <cr>", opts)
-map.set("n", "<leader>aj", "<cmd> lua require('harpoon.ui').nav_file(2) <cr>", opts)
-map.set("n", "<leader>ak", "<cmd> lua require('harpoon.ui').nav_file(3) <cr>", opts)
-map.set("n", "<leader>al", "<cmd> lua require('harpoon.ui').nav_file(4) <cr>", opts)
 
 ---- CONCEALING
 map.set("n", "<leader>tl", function()

@@ -18,6 +18,7 @@ return {
 					"tailwindcss",
 					"pyright",
 					"lua_ls",
+					"eslint@4.8.0",
 				},
 				automatic_installation = true,
 			})
@@ -35,7 +36,6 @@ return {
 				ensure_installed = {
 					"stylua",
 					"prettierd",
-					"eslint_d",
 				},
 			})
 		end,

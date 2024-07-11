@@ -52,7 +52,6 @@ return {
 				name = "Toggle",
 				c = "cmp",
 				d = "Telescope diagnostics",
-				h = "Treesitter highlighting",
 				l = "Norg conceal",
 				L = "Norg conceal on cursor line",
 			},

@@ -13,6 +13,7 @@ return {
 				"typescript",
 				"tsx",
 				"markdown",
+				"vue",
 				"vimdoc",
 			},
 			sync_install = false,
