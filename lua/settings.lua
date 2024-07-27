@@ -7,8 +7,8 @@ vim.opt.showmatch = true
 vim.opt.ignorecase = true
 vim.opt.cmdheight = 1
 
-local space = " "
 vim.opt.list = true
+local space = " "
 vim.opt.listchars:append({
 	tab = "│ ",
 	multispace = space,

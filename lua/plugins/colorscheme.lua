@@ -3,7 +3,7 @@ return {
 		"rebelot/kanagawa.nvim",
 		config = function()
 			require("kanagawa").setup({
-				commentStyle = { italic = true },
+				commentStyle = { italic = false },
 				keywordStyle = { italic = false },
 
 				overrides = function()
